@@ -5,7 +5,7 @@ app.controller('missionControl', function(){
 app.factory("instaview", function($http){
 	return $http({
 		method: 'GET',
-		url:'https://www.reddit.com/r/funny.JSON'
+		url:'https://www.reddit.com/r/funny.json'
 	});
 
 });
