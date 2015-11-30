@@ -1,3 +1,5 @@
 <div class="someClass">
-  <input type="text" placeholder="Enter a number" ng-binding="userInput">
+  <input type="text" placeholder="Enter a number" ng-model="number">
+  <button ng-click="store(number)">Enter</button>
+  <h1>Your number is {{number}} and is {{stuff}}.</h1>
 </div>
