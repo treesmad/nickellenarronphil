@@ -1,27 +1,8 @@
-app.service('instaview', function ($http) { 
-	console.log("test");
-	var displayPhotos = {}
+var app = angular.module("myMod");
 
-	$http({
-  		method: 'GET',
-		url: 'https://www.reddit.com/r/funny/.json'
-	}).then(function successCallback(response) {
-		console.log(response);
-  	}, function errorCallback(response) {
-    	console.log("response");
-  	});
+app.controller('missionControl', function($scope, redditService) {
 
-  	return {
-  		getContent: function() {
-  			return displayPhotos
-  		}
-  	}
-})
-app.controller('missionControl', [function (instaview) {
-  	// response=instaview;
-  	//  response.then(function(result) {  // this is only run after $http completes
-   //     $scope.data = result;
-   //     console.log("data.name"+$scope.data.name);
-    // });
+		$scope.redditPayload = redditService.getContent();
+		console.log($scope.redditPayload);
 
-}]);
+});
