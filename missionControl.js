@@ -1,18 +1,33 @@
-app.controller('missionControl', function(){
 
-});
+app.service('instaview', function ($http) { 
+	console.log("test");
+	var displayPhotos = {}
+	
+	$http({
+  		method: 'GET',
+		url: 'https://www.reddit.com/r/funny/.json'
+	}).then(function successCallback(response) {
+		console.log(response);
+  	}, function errorCallback(response) {
+    	console.log("response");
+  	});
 
-app.factory("instaview", function($http, $scope){
-	return $http({
-		method: 'GET',
-		url:'https://www.reddit.com/r/funny.JSON'
-		method: 'Post'
-	})
-	.then(function(response){
-			$scope."" = response.data
-	})
+  	return {
+  		getContent: function() {
+  			return displayPhotos
+  		}
+  	}
+})
+app.controller('missionControl', [function (instaview) {
+  	// response=instaview;
+  	//  response.then(function(result) {  // this is only run after $http completes
+   //     $scope.data = result;
+   //     console.log("data.name"+$scope.data.name);
+    // });
+  
+}]);
 
-});
+
 
 
 
