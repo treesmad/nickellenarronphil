@@ -4,7 +4,8 @@ app.controller("fizzBuzzControl", function($scope, fizzBuzzService) {
 
   $scope.store = function(number) {
     fizzBuzzService.setInfo(number);
-    $scope.stuff = fizzBuzzService.getInfo();
+    $scope.isFizzBuzz = fizzBuzzService.getInfo();
+    // Renamed $scope.stuff to $scope.isFizzBuzz for clarity's sake.
   };
 
 

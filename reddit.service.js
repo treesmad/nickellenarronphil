@@ -8,9 +8,9 @@ app.service('redditService', function ($http) {
   		method: 'GET',
 			url: 'https://www.reddit.com/r/funny/.json'
 	}).then(function successCallback(response) {
-		displayPhotos.data = response.data;
+		displayPhotos.data = response.data.data.children; // This is not a typo.  Two .datas for real.
   }, function errorCallback(response) {
-  	displayPhotos.data = "Uh oh, error.";
+  	console.log("Couldn't get data from reddit.");
   });
 
   	return {
